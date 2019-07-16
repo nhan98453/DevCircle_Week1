@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Number Guessing</title>
+</head>
+<body>
+	<div id="message">Number Guessinng Game in HTML</div>
+	<div id="guessedNumbers"></div>
+	<input type="number" id="number"/>
+	<button id="guessButton">Guess</button>
+	<script>
+		let button = document.getElementById('guessButton');
+		let game={
+			result : Math.round(Math.random()*100),
+			countGuess:10,
+			guessed:[]
+		}
+		button.addEventListener('click', function() {
+			userGuess = document.getElementById('number').value;
+			let message = document.getElementById('message');
+			if(game.countGuess >0){
+				if(userGuess < game.result){
+					console.log("Sorry your guess is too low");
+					message.innerHTML=`Your guess was too low,guess higher. You have ${game.countGuess} guesses left`;
+					message.style.backgroundColor = "#FF0000";
+					game.guessed.push(userGuess);
+					document.getElementById('guessedNumbers').innerHTML= `You guessed: ${game.guessed}`;
+				}
+				if(userGuess == game.result){
+					console.log("Congratulations!! You guessed correctly.");
+					message.innerHTML= `YAY YOU ARE THE LORD OF THE GUESSES!!!`;
+					message.style.backgroundColor = "#06FF00";
+				}
+				if(userGuess > game.result){
+					console.log("Sorry your guess is too high. You have ");
+					message.innerHTML = `Your guess was too high,guess lower. You have ${game.countGuess} guesses left`;
+					message.style.backgroundColor = "#FF0000";
+					game.guessed.push(userGuess);
+					document.getElementById('guessedNumbers').innerHTML= `You guessed: ${game.guessed}`;
+				}
+				game.countGuess--;
+			}
+			else{
+				message.innerHTML= "You failed";
+				message.style.backgroundColor = "#FFF600";
+			}
+
+		});
+	</script>
+</body>
+</html>
