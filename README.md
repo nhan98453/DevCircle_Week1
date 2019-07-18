@@ -11,11 +11,8 @@ Completed user stories:
 * [x] Optional: Show user's past guesses.
 * [x] Optional: Change message container color.
 * [x] Optional: Limit person to 10 guesses, show many guesses remaining.
-**Notes:**
-
-Spent some time making the UI work across multiple phone resolutions by playing around with the RelativeLayout.
 
 **Walkthrough of all user stories:**
 ![Video Walkthrough](week1.gif)
 
-GIF created with LiceCap.
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
